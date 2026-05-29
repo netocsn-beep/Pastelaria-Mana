@@ -1,11 +1,13 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-/* 🍔 PRODUTOS DA PASTELARIA MANÁ */
+/* 🍔 PRODUTOS */
 const products = [
   { id: 1, name: "Pastel de Carne", price: 8 },
   { id: 2, name: "Pastel de Frango", price: 8 },
@@ -14,12 +16,44 @@ const products = [
 
 let orders = [];
 
-/* 📦 LISTAR PRODUTOS */
+/* 🌐 MOSTRAR TELA NO CELULAR */
+app.get("/", (req, res) => {
+  res.send(`
+    <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pastelaria Maná</title>
+    </head>
+    <body style="font-family:Arial;text-align:center">
+
+      <h1>🍔 Pastelaria Maná</h1>
+      <div id="app"></div>
+
+      <script>
+        fetch("/products")
+        .then(r=>r.json())
+        .then(data=>{
+          document.getElementById("app").innerHTML =
+          data.map(p=>
+            "<div style='margin:10px;padding:10px;border:1px solid #ccc'>" +
+            "<h3>"+p.name+"</h3>" +
+            "<p>R$ "+p.price+"</p>" +
+            "</div>"
+          ).join("");
+        });
+      </script>
+
+    </body>
+    </html>
+  `);
+});
+
+/* 📦 PRODUTOS */
 app.get("/products", (req, res) => {
   res.json(products);
 });
 
-/* 🛒 CRIAR PEDIDO */
+/* 🛒 PEDIDOS */
 app.post("/order", (req, res) => {
   const order = {
     id: Date.now(),
@@ -29,25 +63,14 @@ app.post("/order", (req, res) => {
   };
 
   orders.push(order);
-
   res.json(order);
 });
 
-/* 📋 VER PEDIDOS (ADMIN) */
+/* 📋 ADMIN */
 app.get("/orders", (req, res) => {
   res.json(orders);
 });
 
-/* 🔄 ATUALIZAR STATUS */
-app.put("/order/:id", (req, res) => {
-  orders = orders.map(o =>
-    o.id == req.params.id ? { ...o, status: req.body.status } : o
-  );
-
-  res.json({ ok: true });
-});
-
-/* 🚀 START */
 app.listen(process.env.PORT || 3000, () => {
   console.log("Pastelaria Maná rodando");
 });
