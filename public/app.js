@@ -46,9 +46,43 @@ document.getElementById("sabor2").value;
 
 const pagamento =
 document.getElementById("pagamento").value;
+  const nome =
+document.getElementById("nome").value;
+
+const telefone =
+document.getElementById("telefone").value;
+
+const rua =
+document.getElementById("rua").value;
+
+const numero =
+document.getElementById("numero").value;
+
+const referencia =
+document.getElementById("referencia").value;
+
+const troco =
+document.getElementById("troco").value;
 
 let mensagem =
+let mensagem =
 `🍔 PASTELARIA MANÁ
+Sabor que vem do Céu
+
+👤 Cliente:
+${nome}
+
+📱 Telefone:
+${telefone}
+
+📍 Endereço:
+${rua}
+
+🏠 Número:
+${numero}
+
+📌 Referência:
+${referencia}
 
 🥟 Pastel:
 ${sabor1}
@@ -66,7 +100,7 @@ R$ ${bebida}
 🔥 Combo:
 ${combo > 0 ? "Sim" : "Não"}
 
-🚚 Taxa:
+🚚 Entrega:
 R$ ${taxa}
 
 💰 Total:
@@ -75,13 +109,11 @@ R$ ${total}
 💳 Pagamento:
 ${pagamento}
 
+💵 Troco:
+${troco || "Não precisa"}
+
 PIX:
 91981018269
+
 Cícero Sabino da Costa Neto
 RecargaPay`;
-
-window.open(
-`https://wa.me/5591981018269?text=${encodeURIComponent(mensagem)}`
-);
-
-}
