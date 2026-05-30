@@ -7,9 +7,30 @@ let adicionais = [];
 document
 .querySelectorAll("input[type=checkbox]:checked")
 .forEach(item=>{
-total += Number(item.dataset.price);
-adicionais.push(item.value);
+  total += Number(item.dataset.price);
+  adicionais.push(item.value);
 });
+
+const combo = Number(
+document.getElementById("combo").value
+);
+
+if(combo > 0){
+  total = combo;
+}
+
+const batata = Number(
+document.getElementById("batata").value
+);
+
+const bebida = Number(
+document.getElementById("bebida").value
+);
+
+if(combo === 0){
+  total += batata;
+  total += bebida;
+}
 
 let taxa = Number(
 document.getElementById("bairro").value
@@ -36,7 +57,16 @@ ${sabor2 !== "Não quero" ? "+ " + sabor2 : ""}
 🧀 Adicionais:
 ${adicionais.join(", ") || "Nenhum"}
 
-🚚 Taxa Entrega:
+🍟 Batata:
+R$ ${batata}
+
+🥤 Bebida:
+R$ ${bebida}
+
+🔥 Combo:
+${combo > 0 ? "Sim" : "Não"}
+
+🚚 Taxa:
 R$ ${taxa}
 
 💰 Total:
