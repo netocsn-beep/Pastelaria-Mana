@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pastelaria Maná</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header>
+<img src="logo.png" class="logo">
+<h1>Pastelaria Maná</h1>
+<p>Sabor que vem do Céu</p>
+</header>
+
+<section class="cardapio">
+
+<h2>Pastel Tradicional - R$ 15</h2>
+
+<label>1º Sabor</label>
+<select id="sabor1">
+<option>Carne</option>
+<option>Frango</option>
+<option>Queijo</option>
+<option>Presunto</option>
+<option>Bacon</option>
+<option>Calabresa</option>
+<option>Charque</option>
+</select>
+
+<label>2º Sabor</label>
+<select id="sabor2">
+<option>Não quero</option>
+<option>Carne</option>
+<option>Frango</option>
+<option>Queijo</option>
+<option>Presunto</option>
+<option>Bacon</option>
+<option>Calabresa</option>
+<option>Charque</option>
+</select>
+
+<h2>Adicionais</h2>
+
+<label><input type="checkbox" value="Queijo Extra" data-price="3"> Queijo Extra (+R$3)</label>
+<label><input type="checkbox" value="Cheddar" data-price="3"> Cheddar (+R$3)</label>
+<label><input type="checkbox" value="Bacon Extra" data-price="4"> Bacon Extra (+R$4)</label>
+<label><input type="checkbox" value="Calabresa Extra" data-price="4"> Calabresa Extra (+R$4)</label>
+<label><input type="checkbox" value="Catupiry" data-price="4"> Catupiry (+R$4)</label>
+<label><input type="checkbox" value="Ovo" data-price="2"> Ovo (+R$2)</label>
+<label><input type="checkbox" value="Quatro Queijos" data-price="5"> Quatro Queijos (+R$5)</label>
+
+<h2>Bairro</h2>
+
+<select id="bairro">
+<option value="0">Jaderlândia</option>
+<option value="0">Heliolândia</option>
+<option value="0">Bom Jesus</option>
+<option value="3">Milagre</option>
+<option value="3">Santa Catarina</option>
+<option value="4">Outros Próximos</option>
+<option value="6">Outros Distantes</option>
+</select>
+
+<h2>Pagamento</h2>
+
+<select id="pagamento">
+<option>Pix</option>
+<option>Dinheiro</option>
+</select>
+
+<button onclick="finalizarPedido()">
+Fazer Pedido
+</button>
+
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
