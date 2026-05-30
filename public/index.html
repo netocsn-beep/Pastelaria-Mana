@@ -91,13 +91,26 @@
 <option value="4">Outros Próximos</option>
 <option value="6">Outros Distantes</option>
 </select>
+<h2>👤 Dados do Cliente</h2>
 
-<h2>Pagamento</h2>
+<input id="nome" placeholder="Seu nome">
+
+<input id="telefone" placeholder="Telefone">
+
+<input id="rua" placeholder="Rua">
+
+<input id="numero" placeholder="Número">
+
+<input id="referencia" placeholder="Ponto de referência">
+
+<h2>💳 Pagamento</h2>
 
 <select id="pagamento">
-<option>Pix</option>
-<option>Dinheiro</option>
+  <option>Pix</option>
+  <option>Dinheiro</option>
 </select>
+
+<input id="troco" placeholder="Troco para quanto? (se dinheiro)">
 
 <button onclick="finalizarPedido()">
 Fazer Pedido
